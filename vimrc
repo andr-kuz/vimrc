@@ -99,7 +99,7 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'sonph/onehalf', { 'rtp': 'vim' } " color scheme
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } # sudo apt install ripgrep to make fzf work
 Plug 'junegunn/fzf.vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'easymotion/vim-easymotion'
