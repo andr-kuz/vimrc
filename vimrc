@@ -15,10 +15,11 @@ set hlsearch
 set cursorcolumn
 set cursorline
 set t_Co=256
+set mouse=i
 " let g:netrw_browse_split=4      " Open file in previous buffer
 
-set clipboard=unnamed " use the clipboards of vim and win
-set paste                   " Paste from a windows or from vim
+set clipboard=unnamedplus " use the clipboards of vim and win
+" set paste                   " Paste from a windows or from vim
 set belloff=all
 
 filetype plugin indent on
@@ -88,7 +89,6 @@ map <Leader> <Plug>(easymotion-prefix)
 map <Space> <Leader>
 nnoremap <silent> <leader>p :Files<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
-" nnoremap <leader>s :ToggleWorkspace<CR>
 
 " PLUGINS
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -99,24 +99,18 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'sonph/onehalf', { 'rtp': 'vim' } " color scheme
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } # sudo apt install ripgrep to make fzf work
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'easymotion/vim-easymotion'
-Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'thaerkh/vim-workspace'
+Plug 'thaerkh/vim-workspace'
 Plug 'mattn/emmet-vim'
-" Plug 'preservim/tagbar'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-" Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'ackyshake/VimCompletesMe'
-" Plug 'lumiliet/vim-twig'
-" Plug 'digitaltoad/vim-pug'
-" Plug 'jwalton512/vim-blade'
-" Plug 'szw/vim-tags'
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 " PLUGIN SETTINGS
@@ -125,11 +119,7 @@ call plug#end()
 
 " let g:workspace_autosave_ignore = ['gitcommit']
 
-colorscheme onehalflight
-" let g:gitgutter_git_executable = 'C:\Windows\Sysnative\wsl.exe'
-" let g:gitgutter_git_executable = 'C:/Program Files/Git/bin/git.exe'
-" let g:gitgutter_git_executable = '\"C:\Program\ Files\Git\bin\git.exe\"'
-let g:workspace_session_name='session.vim'
+colorscheme onehalfdark
 let g:coc_start_at_startup = v:false " disable CoC
 let g:netrw_banner=0 " disable directory banner
 let php_htmlInStrings = 1
@@ -137,6 +127,10 @@ au BufNewFile,BufRead,BufReadPost *.twig set syntax=html
 " autocmd BufNewFile,BufRead *.blade.php set syntax=html
 " autocmd BufNewFile,BufRead *.blade.php set filetype=html
 " au BufNewFile,BufRead,BufReadPost *.blade.php set syntax=html
+let g:workspace_session_name='session.vim'
+let g:workspace_create_new_tabs = 0 " enabled = 1 (default), disabled = 0
+let g:workspace_persist_undo_history = 1  " enabled = 1 (default), disabled = 0
+let g:workspace_undodir='.undodir'
 
 let g:ycm_filetype_blacklist = {
             \ 'vim': 1,         
