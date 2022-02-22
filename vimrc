@@ -110,14 +110,15 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'ackyshake/VimCompletesMe'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 " PLUGIN SETTINGS
 
 " g:tagbar_ctags_bin = '$HOME\vimfiles\plugged\ctags'
 
-" let g:workspace_autosave_ignore = ['gitcommit']
+let g:workspace_autosave_ignore = ['gitcommit']
 
 colorscheme onehalfdark
 let g:coc_start_at_startup = v:false " disable CoC
@@ -146,20 +147,17 @@ let $FZF_DEFAULT_OPTS='
       \ --color=info:#afaf87,prompt:#d7005f,pointer:#cc0000
       \ --color=marker:#ef2929,spinner:#af5fff,header:#ffffff'
 
-" use <tab> for trigger completion and navigate to the next complete item
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~ '\s'
-" endfunction
-" inoremap <silent><expr> <Tab>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<Tab>" :
-"       \ coc#refresh()
-
-let g:airline_theme='onehalfdark'
-
+let g:airline_theme='onehalflight'
+let g:ale_python_flake8_options = '--ignore=E501'
 let g:user_emmet_expandabbr_key='<Tab>' " expand emmet snippet by <tab>
 
 let g:airline#extensions#tagbar#enabled = 1 " enable tagbar in vim airline
 
 set iskeyword+=- "Treat words with dash as a word in Vim
+
+" let g:ale_python_flake8_options = ['--ignore=E501']
+set statusline=
+set statusline+=%m
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
