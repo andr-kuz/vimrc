@@ -118,9 +118,11 @@ call plug#end()
 
 " g:tagbar_ctags_bin = '$HOME\vimfiles\plugged\ctags'
 
+let b:vcm_tab_complete='Tags'
+
 let g:workspace_autosave_ignore = ['gitcommit']
 
-colorscheme onehalfdark
+colorscheme onehalflight
 let g:coc_start_at_startup = v:false " disable CoC
 let g:netrw_banner=0 " disable directory banner
 let php_htmlInStrings = 1
@@ -133,8 +135,12 @@ let g:workspace_create_new_tabs = 0 " enabled = 1 (default), disabled = 0
 let g:workspace_persist_undo_history = 1  " enabled = 1 (default), disabled = 0
 let g:workspace_undodir='.undodir'
 
+let g:user_emmet_mode='i'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,php EmmetInstall
+
 let g:ycm_filetype_blacklist = {
-            \ 'vim': 1,         
+            \ 'vim': 1,
             \ 'lua': 1,
             \ 'json': 1,
             \ 'markdown': 1,
@@ -147,11 +153,13 @@ let $FZF_DEFAULT_OPTS='
       \ --color=info:#afaf87,prompt:#d7005f,pointer:#cc0000
       \ --color=marker:#ef2929,spinner:#af5fff,header:#ffffff'
 
-let g:airline_theme='onehalflight'
+let g:airline_theme='onehalfdark'
 let g:ale_python_flake8_options = '--ignore=E501'
 let g:user_emmet_expandabbr_key='<Tab>' " expand emmet snippet by <tab>
 
 let g:airline#extensions#tagbar#enabled = 1 " enable tagbar in vim airline
+
+set tags+=$HOME/pythoncode/
 
 set iskeyword+=- "Treat words with dash as a word in Vim
 
