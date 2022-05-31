@@ -57,18 +57,10 @@ endif
 
 
 " KEYMAPS
-nmap Ж :
-nmap Н Y
-nmap з p
-nmap ф a
-nmap щ o
-nmap г u
-nmap З P
 nmap + gg=G<C-o><C-o>
 nnoremap <F2> :set hlsearch!<CR>
 noremap <silent> <C-k> gk
 noremap <silent> <C-j> gj
-nnoremap <silent> <leader>P :pu<CR>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 nnoremap c "_c
 xnoremap c "_c
@@ -77,13 +69,12 @@ nnoremap d "_d
 xnoremap d "_d
 nnoremap <leader>d d
 xnoremap <leader>d d
+noremap x "_x
 " <leader>p throws away the selected text and pastes the content of the default register
 xnoremap <leader>p "_dP
 imap <C-v> <Esc>pa
 smap <C-v> <C-g>p
 cmap <C-v> <C-r>+
-" Prevent X from overriding what's in the clipboard
-noremap x "_x
 noremap <silent> <leader>; :Buffers<CR>
 map <Leader> <Plug>(easymotion-prefix)
 map <Space> <Leader>
@@ -123,29 +114,22 @@ let b:vcm_tab_complete='Tags'
 let g:workspace_autosave_ignore = ['gitcommit']
 
 colorscheme onehalflight
-let g:coc_start_at_startup = v:false " disable CoC
 let g:netrw_banner=0 " disable directory banner
 let php_htmlInStrings = 1
 au BufNewFile,BufRead,BufReadPost *.twig set syntax=html
 " autocmd BufNewFile,BufRead *.blade.php set syntax=html
 " autocmd BufNewFile,BufRead *.blade.php set filetype=html
 " au BufNewFile,BufRead,BufReadPost *.blade.php set syntax=html
+
 let g:workspace_session_name='session.vim'
 let g:workspace_create_new_tabs = 0 " enabled = 1 (default), disabled = 0
 let g:workspace_persist_undo_history = 1  " enabled = 1 (default), disabled = 0
 let g:workspace_undodir='.undodir'
 
-" let g:user_emmet_mode='i'
-" let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key=','
+let g:user_emmet_mode='a'
+let g:user_emmet_install_global = 0
 autocmd FileType html,css,php EmmetInstall
-
-let g:ycm_filetype_blacklist = {
-            \ 'vim': 1,
-            \ 'lua': 1,
-            \ 'json': 1,
-            \ 'markdown': 1,
-            \ 'md': 1,
-            \ }
 
 let $FZF_DEFAULT_OPTS='
       \ --color=fg:#2e3436,bg:#eeeeee,hl:#fcaf3e
@@ -159,7 +143,6 @@ let g:ale_linters = {
   \   'python': ['flake8', 'pylint'],
 \}
 let g:ale_python_flake8_options = '--ignore=E501'
-let g:user_emmet_expandabbr_key='<Tab>' " expand emmet snippet by <tab>
 
 let g:javascript_plugin_jsdoc = 1
 
@@ -168,9 +151,3 @@ let g:airline#extensions#tagbar#enabled = 1 " enable tagbar in vim airline
 set tags+=$HOME/pythoncode/
 
 set iskeyword+=- "Treat words with dash as a word in Vim
-
-set statusline=
-set statusline+=%m
-set statusline+=\ %f
-set statusline+=%=
-set statusline+=\ %{LinterStatus()}
