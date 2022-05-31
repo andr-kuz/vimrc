@@ -4,6 +4,7 @@ set langmenu=en_US.UTF-8    " sets the language of the menu (gvim)
 set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 set nobackup
 set nowritebackup
+filetype indent on
 set autoindent
 set smartindent
 set backspace=indent,eol,start
@@ -31,7 +32,6 @@ set softtabstop=2
 " when indenting with '>', use 2 spaces width
 set shiftwidth=0
 set smarttab
-
 
 set number relativenumber
 augroup numbertoggle
@@ -110,7 +110,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'ackyshake/VimCompletesMe'
-" Plug 'vim-syntastic/syntastic'
+Plug 'pangloss/vim-javascript'
 Plug 'dense-analysis/ale'
 call plug#end()
 
@@ -135,8 +135,8 @@ let g:workspace_create_new_tabs = 0 " enabled = 1 (default), disabled = 0
 let g:workspace_persist_undo_history = 1  " enabled = 1 (default), disabled = 0
 let g:workspace_undodir='.undodir'
 
-let g:user_emmet_mode='i'
-let g:user_emmet_install_global = 0
+" let g:user_emmet_mode='i'
+" let g:user_emmet_install_global = 0
 autocmd FileType html,css,php EmmetInstall
 
 let g:ycm_filetype_blacklist = {
@@ -154,8 +154,14 @@ let $FZF_DEFAULT_OPTS='
       \ --color=marker:#ef2929,spinner:#af5fff,header:#ffffff'
 
 let g:airline_theme='onehalfdark'
+let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \   'python': ['flake8', 'pylint'],
+\}
 let g:ale_python_flake8_options = '--ignore=E501'
 let g:user_emmet_expandabbr_key='<Tab>' " expand emmet snippet by <tab>
+
+let g:javascript_plugin_jsdoc = 1
 
 let g:airline#extensions#tagbar#enabled = 1 " enable tagbar in vim airline
 
@@ -163,7 +169,6 @@ set tags+=$HOME/pythoncode/
 
 set iskeyword+=- "Treat words with dash as a word in Vim
 
-" let g:ale_python_flake8_options = ['--ignore=E501']
 set statusline=
 set statusline+=%m
 set statusline+=\ %f
