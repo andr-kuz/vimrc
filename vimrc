@@ -17,6 +17,8 @@ set cursorcolumn
 set cursorline
 set t_Co=256
 set mouse=i
+filetype indent on
+set iskeyword+=- "Treat words with dash as a word in Vim
 " let g:netrw_browse_split=4      " Open file in previous buffer
 
 set clipboard=unnamedplus " use the clipboards of vim and win
@@ -41,20 +43,24 @@ augroup numbertoggle
 augroup END
 set foldmethod=indent
 
-if has("gui_running")
+" css and js indention inside html
+let g:html_indent_script1 = 'inc'
+let g:html_indent_style1 = 'inc'
+let mapleader = ','
+
+if has('gui_running')
   set guioptions -=m
   set guioptions=Ace
   set guioptions -=T
-  if has("gui_gtk2")
+  if has('gui_gtk2')
     set guifont=Inconsolata\ 12
-  elseif has("gui_macvim") set guifont=Menlo\ Regular:h14
-  elseif has("gui_win32")
+  elseif has('gui_macvim') set guifont=Menlo\ Regular:h14
+  elseif has('gui_win32')
     set guifont=Consolas:h10:cANSI
     set rtp +=~/vimfiles
   endif
   language en  " sets the language of the messages / ui (vim)
 endif
-
 
 " KEYMAPS
 nmap + gg=G<C-o><C-o>
@@ -88,29 +94,29 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'sonph/onehalf', { 'rtp': 'vim' } " color scheme
 Plug 'airblade/vim-gitgutter'
+Plug 'ackyshake/VimCompletesMe'
+Plug 'dense-analysis/ale'
+Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
-Plug 'thaerkh/vim-workspace'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'vim-airline/vim-airline'
-Plug 'ackyshake/VimCompletesMe'
-Plug 'pangloss/vim-javascript'
-Plug 'dense-analysis/ale'
 Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'thaerkh/vim-workspace'
+Plug 'sonph/onehalf', { 'rtp': 'vim' } " color scheme
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " PLUGIN SETTINGS
 
 " g:tagbar_ctags_bin = '$HOME\vimfiles\plugged\ctags'
 
-let b:vcm_tab_complete='Tags'
+let b:vcm_tab_complete='Omni completion'
 
 let g:workspace_autosave_ignore = ['gitcommit']
 
@@ -129,8 +135,7 @@ let g:workspace_undodir='.undodir'
 
 let g:user_emmet_leader_key=','
 let g:user_emmet_mode='a'
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,php EmmetInstall
+let g:user_emmet_install_global = 1
 
 let $FZF_DEFAULT_OPTS='
       \ --color=fg:#2e3436,bg:#eeeeee,hl:#fcaf3e
@@ -150,5 +155,3 @@ let g:javascript_plugin_jsdoc = 1
 let g:airline#extensions#tagbar#enabled = 1 " enable tagbar in vim airline
 
 set tags+=$HOME/pythoncode/
-
-set iskeyword+=- "Treat words with dash as a word in Vim
