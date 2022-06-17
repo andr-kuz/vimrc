@@ -103,6 +103,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'ackyshake/VimCompletesMe'
 Plug 'pangloss/vim-javascript'
 Plug 'dense-analysis/ale'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " PLUGIN SETTINGS
@@ -113,7 +114,7 @@ let b:vcm_tab_complete='Tags'
 
 let g:workspace_autosave_ignore = ['gitcommit']
 
-colorscheme onehalflight
+colorscheme onehalfdark
 let g:netrw_banner=0 " disable directory banner
 let php_htmlInStrings = 1
 au BufNewFile,BufRead,BufReadPost *.twig set syntax=html
