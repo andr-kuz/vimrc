@@ -137,11 +137,12 @@ let g:user_emmet_leader_key=','
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 1
 
+" https://minsw.github.io/fzf-color-picker/
 let $FZF_DEFAULT_OPTS='
-      \ --color=fg:#2e3436,bg:#eeeeee,hl:#fcaf3e
-      \ --color=fg+:#df5f00,bg+:#000000,hl+:#f57900
-      \ --color=info:#afaf87,prompt:#d7005f,pointer:#cc0000
-      \ --color=marker:#ef2929,spinner:#af5fff,header:#ffffff'
+      \ --color=fg:#dcdfe4,bg:#282c34,hl:#61afef
+      \ --color=fg+:#dcdfe4,bg+:#282c34,hl+:#61afef
+      \ --color=info:#e5c07b,prompt:#e06c75,pointer:#c678dd
+      \ --color=marker:#98c379,spinner:#c678dd,header:#56b6c2'
 
 let g:airline_theme='onehalfdark'
 let g:ale_linters = {
