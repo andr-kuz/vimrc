@@ -114,6 +114,9 @@ call plug#end()
 
 " PLUGIN SETTINGS
 
+" tells fzf not to search in filenames
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
 " g:tagbar_ctags_bin = '$HOME\vimfiles\plugged\ctags'
 
 let b:vcm_tab_complete='Omni completion'
