@@ -24,6 +24,7 @@ set iskeyword+=- "Treat words with dash as a word in Vim
 set clipboard=unnamedplus " use the clipboards of vim and win
 " set paste                   " Paste from a windows or from vim
 set belloff=all
+
 " first `sudo apt install exuberant-ctags`
 " or `sudo pacman -S ctags`
 " then in workind directory do `ctags -R --languages=php *` 
