@@ -27,7 +27,8 @@ set belloff=all
 " first `sudo apt install exuberant-ctags`
 " or `sudo pacman -S ctags`
 " then in workind directory do `ctags -R --languages=php *` 
-" below setting to look for `tags` file in working vim directory, and up above till $HOME 
+" search for tags with ctrl+[
+" below setting to look for `tags` file in working vim directory, and up above for `tags` till `$HOME` 
 set tags=./tags,tags;$HOME
 
 filetype plugin indent on
@@ -122,7 +123,7 @@ call plug#end()
 " tells fzf not to search in filenames
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
-" g:tagbar_ctags_bin = '$HOME\vimfiles\plugged\ctags'
+g:tagbar_ctags_bin = '$HOME\vimfiles\plugged\ctags'
 
 let b:vcm_tab_complete='Omni completion'
 
@@ -162,5 +163,3 @@ let g:ale_python_flake8_options = '--ignore=E501'
 let g:javascript_plugin_jsdoc = 1
 
 let g:airline#extensions#tagbar#enabled = 1 " enable tagbar in vim airline
-
-set tags+=$HOME/pythoncode/
