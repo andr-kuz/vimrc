@@ -25,6 +25,7 @@ set clipboard=unnamedplus " use the clipboards of vim and win
 " set paste                   " Paste from a windows or from vim
 set belloff=all
 
+" https://www.youtube.com/watch?v=HxMd4psEWmc
 " first `sudo apt install exuberant-ctags`
 " or `sudo pacman -S ctags`
 " then in workind directory do `ctags -R --languages=php *` 
