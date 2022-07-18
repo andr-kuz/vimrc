@@ -24,6 +24,8 @@ set iskeyword+=- "Treat words with dash as a word in Vim
 set clipboard=unnamedplus " use the clipboards of vim and win
 " set paste                   " Paste from a windows or from vim
 set belloff=all
+" look for tags file in working vim directory, and up above till $HOME 
+set tags=./tags,tags;$HOME
 
 filetype plugin indent on
 " On pressing tab, insert 2 spaces
