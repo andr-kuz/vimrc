@@ -30,6 +30,8 @@ set belloff=all
 " or `sudo pacman -S ctags`
 " then in workind directory do `ctags -R --languages=php *` 
 " search for tags with ctrl+[
+" or `vim -t function_name` or inside vim `:ts function_name`
+" navigate on tags with `:tn` or `:tp` or `:ts` for search results for previos tag
 " below setting to look for `tags` file in working vim directory, and up above for `tags` till `$HOME` 
 set tags=./tags,tags;$HOME
 
